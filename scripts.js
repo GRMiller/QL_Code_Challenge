@@ -1,17 +1,17 @@
 // Make our array of data
 const data = [
-	{ month: 'January', sales: 50000, person: 'Angela' },
-	{ month: 'February', sales: 10000, person: 'Roberto' },
-	{ month: 'March', sales: 85000, person: 'Maria' }, 
-	{ month: 'April', sales: 56000, person: 'Stacy' },
-	{ month: 'May', sales: 68000, person: 'William' },
-	{ month: 'June', sales: 32000, person: 'Darrel' },
-	{ month: 'July', sales: 21000, person: 'Angela' },
-	{ month: 'August', sales: 18000, person: 'Angela' },
-	{ month: 'September', sales: 118000, person: 'Maria' }, 
-	{ month: 'October', sales: 52000, person: 'Stacy' },
-	{ month: 'November', sales: 87000, person: 'Angela' },
-	{ month: 'December', sales: 121000, person: 'William' }
+	{ month: 'January', sales: 50000.00, person: 'Angela' },
+	{ month: 'February', sales: 10000.00, person: 'Roberto' },
+	{ month: 'March', sales: 85000.00, person: 'Maria' }, 
+	{ month: 'April', sales: 56000.00, person: 'Stacy' },
+	{ month: 'May', sales: 68000.00, person: 'William' },
+	{ month: 'June', sales: 32000.00, person: 'Darrel' },
+	{ month: 'July', sales: 21000.00, person: 'Angela' },
+	{ month: 'August', sales: 18000.00, person: 'Angela' },
+	{ month: 'September', sales: 118000.00, person: 'Maria' }, 
+	{ month: 'October', sales: 52000.00, person: 'Stacy' },
+	{ month: 'November', sales: 87000.00, person: 'Angela' },
+	{ month: 'December', sales: 121000.00, person: 'William' }
 ];
 console.table(data);
 
@@ -21,12 +21,17 @@ const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 const salesHeader = document.getElementById('sales');
 const personHeader = document.getElementById('person');
 
+// Helper function to add commas
+function numberWithCommas(x) {
+	return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+}
+
 // Display data
 function displayTable(data) {
   
 	const html = data.map((data) => {
 		const month = data.month;
-		const sales = data.sales;
+		const sales = '$' + numberWithCommas(data.sales);
 		const person = data.person;
 
 		return `

@@ -14,6 +14,7 @@ const data = [
 	{ month: 'December', sales: 121000, person: 'William' }
 ];
 console.table(data);
+
 // Get variables we'll need
 const table = document.getElementById('table-body');
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
@@ -46,6 +47,39 @@ displayTable(data);
  * When checkbox is checked, filter table to only show corresponding rows
  * Q1=Jan-Mar, Q2=Apr-Jun, Q3=Jul-Sep, Q4=Oct-Dev
  */
+function checkCheckboxes() {
+	// Pre-filter data by quarters
+	const q1Data = data.filter(quarter => quarter.month === 'January' || quarter.month === 'February' || quarter.month === 'March');
+	const q2Data = data.filter(quarter => quarter.month === 'April' || quarter.month === 'May' || quarter.month === 'June');
+	const q3Data = data.filter(quarter => quarter.month === 'July' || quarter.month === 'August' || quarter.month === 'September');
+	const q4Data = data.filter(quarter => quarter.month === 'October' || quarter.month === 'November' || quarter.month === 'December');
+
+	// Create array for data to display and var to count checks
+	let displayData = [];
+
+	// Loop through boxes, if checked add corresponding array to displayData. keep track of how many boxes are checked
+	checkboxes.forEach(checkbox => {
+		// Only act when a box is checked
+		if (checkbox.checked) {
+			// Check IDs
+			if (checkbox.id === 'q1') {
+				displayData.push.apply(displayData, q1Data);
+			} else if (checkbox.id === 'q2') {
+				displayData.push.apply(displayData, q2Data);
+			} else if (checkbox.id === 'q3') {
+				displayData.push.apply(displayData, q3Data);
+			} else if (checkbox.id === 'q4') {
+				displayData.push.apply(displayData, q4Data);
+			}
+		}
+    
+		console.table(displayData);
+		displayTable(displayData);
+	});
+}
+
+// Listen for change, call checkCheckboxes on change
+checkboxes.forEach(checkbox => checkbox.addEventListener('change', checkCheckboxes));
 
 
 

@@ -256,6 +256,7 @@ tr td:nth-child(2) {
 footer {
   background-color: var(--color-secondary);
   display: flex;
+  justify-content: center;
   padding: calc(var(--size) * 2);
 }
   @media all and (max-width: 740px) {

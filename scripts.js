@@ -13,7 +13,6 @@ const data = [
 	{ month: 'November', sales: 87000.00, person: 'Angela' },
 	{ month: 'December', sales: 121000.00, person: 'William' }
 ];
-console.table(data);
 
 // Get variables we'll need
 const table = document.getElementById('table-body');
@@ -23,7 +22,7 @@ const personHeader = document.getElementById('person');
 
 // Helper function to add commas
 function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
 // Display data
@@ -42,8 +41,11 @@ function displayTable(data) {
 			</tr>
 			`;
 	}).join('');
+  
 	table.innerHTML = html;
+  
 }
+
 displayTable(data);
 
 /**
@@ -87,8 +89,9 @@ function checkCheckboxes() {
 	if (numberOfChecks === 0) {
 		displayData = data;
 	}
-	console.table(displayData);
+
 	displayTable(displayData);
+  
 }
 
 // Listen for change, call checkCheckboxes on change
@@ -107,23 +110,28 @@ function sortSales() {
   
 	// Copy data array into display up top, to sort in conditionals
 	let displayData = [...data];
-	console.log(this.classList);
 
 	// Check class and alter/sort correspondingly
 	if (this.classList.length === 0) {
 		displayData.sort((a,b) => a.sales > b.sales ? 1 : -1);
+    
 		this.classList.add('active');
 		this.classList.add('ascending');
-		displayTable(displayData);
+    
+		displayTable(displayData);   
 	} else if (this.classList.contains('ascending')) {
 		displayData.sort((a,b) => a.sales > b.sales ? -1 : 1);
+    
 		this.classList.remove('ascending');
 		this.classList.add('descending');
+    
 		displayTable(displayData);
 	} else if (this.classList.contains('descending')) {
 		displayData = [...data];
+    
 		this.classList.remove('active');
 		this.classList.remove('descending');
+    
 		displayTable(displayData);
 	}
 }
@@ -143,23 +151,28 @@ function sortPeople() {
   
 	// Copy data array into display up top, to sort in conditionals
 	let displayData = [...data];
-	console.log(this.classList);
 
 	// Check class and alter/sort correspondingly
 	if (this.classList.length === 0) {
 		displayData.sort((a,b) => a.person > b.person ? 1 : -1);
+    
 		this.classList.add('active');
 		this.classList.add('ascending');
+    
 		displayTable(displayData);
 	} else if (this.classList.contains('ascending')) {
 		displayData.sort((a,b) => a.person > b.person ? -1 : 1);
+    
 		this.classList.remove('ascending');
 		this.classList.add('descending');
+    
 		displayTable(displayData);
 	} else if (this.classList.contains('descending')) {
 		displayData = [...data];
+    
 		this.classList.remove('active');
 		this.classList.remove('descending');
+    
 		displayTable(displayData);
 	}
 }

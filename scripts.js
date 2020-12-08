@@ -23,7 +23,7 @@ const personHeader = document.getElementById('person');
 
 // Helper function to add commas
 function numberWithCommas(x) {
-	return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 // Display data

@@ -98,6 +98,33 @@ checkboxes.forEach(checkbox => checkbox.addEventListener('change', checkCheckbox
  * Sort rows by Sales
  * 1st click = lowest to highest. 2nd click = highest to lowest. 3rd click = Return to chronological
  */
+function sortSales() {
+  
+  // Copy data array into display up top, to sort in conditionals
+  let displayData = [...data];
+  console.log(this.classList);
+
+  // Check class and alter/sort correspondingly
+  if (this.classList.length === 0) {
+    displayData.sort((a,b) => a.sales > b.sales ? 1 : -1);
+    this.classList.add('active');
+    this.classList.add('ascending');
+    displayTable(displayData);
+  } else if (this.classList.contains('ascending')) {
+    displayData.sort((a,b) => a.sales > b.sales ? -1 : 1);
+    this.classList.remove('ascending');
+    this.classList.add('descending');
+    displayTable(displayData);
+  } else if (this.classList.contains('descending')) {
+    displayData = [...data];
+    this.classList.remove('active');
+    this.classList.remove('descending');
+    displayTable(displayData);
+  }
+}
+
+// Add event listener
+salesHeader.addEventListener('click', sortSales);
 
 
 

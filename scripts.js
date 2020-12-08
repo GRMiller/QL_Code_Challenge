@@ -20,5 +20,48 @@ const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 const salesHeader = document.getElementById('sales');
 const personHeader = document.getElementById('person');
 
+// Display data
+function displayTable(data) {
+  
+	const html = data.map((data) => {
+		const month = data.month;
+		const sales = data.sales;
+		const person = data.person;
+
+		return `
+			<tr>
+				<td>${month}</td>
+				<td>${sales}</td>
+				<td>${person}</td>
+			</tr>
+			`;
+	}).join('');
+	table.innerHTML = html;
+}
+displayTable(data);
+
+/**
+ * ONE
+ *
+ * When checkbox is checked, filter table to only show corresponding rows
+ * Q1=Jan-Mar, Q2=Apr-Jun, Q3=Jul-Sep, Q4=Oct-Dev
+ */
 
 
+
+
+/**
+ * TWO
+ *
+ * Sort rows by Sales
+ * 1st click = lowest to highest. 2nd click = highest to lowest. 3rd click = Return to chronological
+ */
+
+
+
+/**
+ * THREE
+ *
+ * Sort rows by Person
+ * 1st click = alphabetical. 2nd click = reverse aplhabetical (not in instructions though?). 3rd click = Return to chronological
+ */

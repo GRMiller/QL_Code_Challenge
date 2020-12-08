@@ -55,8 +55,8 @@ function checkCheckboxes() {
 	const q4Data = data.filter(quarter => quarter.month === 'October' || quarter.month === 'November' || quarter.month === 'December');
 
 	// Create array for data to display and var to count checks
-  let displayData = [];
-  let numberOfChecks = 0;
+	let displayData = [];
+	let numberOfChecks = 0;
 
 	// Loop through boxes, if checked add corresponding array to displayData. keep track of how many boxes are checked
 	checkboxes.forEach(checkbox => {
@@ -64,26 +64,26 @@ function checkCheckboxes() {
 		if (checkbox.checked) {
 			// Check IDs
 			if (checkbox.id === 'q1') {
-        displayData.push.apply(displayData, q1Data);
-        numberOfChecks++;
+				displayData.push.apply(displayData, q1Data);
+				numberOfChecks++;
 			} else if (checkbox.id === 'q2') {
-        displayData.push.apply(displayData, q2Data);
-        numberOfChecks++;
+				displayData.push.apply(displayData, q2Data);
+				numberOfChecks++;
 			} else if (checkbox.id === 'q3') {
-        displayData.push.apply(displayData, q3Data);
-        numberOfChecks++;
+				displayData.push.apply(displayData, q3Data);
+				numberOfChecks++;
 			} else if (checkbox.id === 'q4') {
-        displayData.push.apply(displayData, q4Data);
-        numberOfChecks++;
+				displayData.push.apply(displayData, q4Data);
+				numberOfChecks++;
 			}
-		}
-    
-    if (numberOfChecks === 0) {
-      displayData = data;
-    }
-		console.table(displayData);
-		displayTable(displayData);
-	});
+		}    
+  });
+      
+  if (numberOfChecks === 0) {
+    displayData = data;
+  }
+  console.table(displayData);
+  displayTable(displayData);
 }
 
 // Listen for change, call checkCheckboxes on change

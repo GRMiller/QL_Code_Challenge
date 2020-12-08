@@ -1,1 +1,125 @@
 /*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,iframe,hr,h1,h2,h3,h4,h5,h6{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}ul{list-style:none}button,input,select,textarea{margin:0}html{box-sizing:border-box}*,*::before,*::after{box-sizing:inherit}img,video{height:auto;max-width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}td:not([align]),th:not([align]){text-align:left}
+
+/* CSS VARIABLES */
+:root {
+  --size: 12px;
+
+  --color-primary: rgb(64, 80, 232);
+  --color-secondary: rgb(27,31,36);
+
+  --font-color-primary: #f7f7f7;
+  --font-color-secondary: #111;
+  --font-size: 16px;
+}
+
+/* GENERAL STYLES */
+body {
+  background-color: var(--color-primary);
+  color: var(--font-color-primary);
+  font-family: 'Verdana', sans-serif;
+}
+
+/* HEADER STYLES */
+header {
+  background-color: var(--color-secondary);
+  background-color: rgb(27,31,36);
+  display: flex;
+    align-items: center;
+  padding: calc(var(--size) * 2);
+}
+
+.logo {
+  display: inline-block;
+  font-size: calc(var(--font-size) * 1.5);
+  margin-left: var(--size);
+  margin-right: calc(var(--size) * 4);
+}
+
+/* NAV STYLES */
+nav {
+  display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+a {
+  color: var(--font-color-primary);
+  margin-right: calc(var(--size) * 2);
+  text-decoration: none;
+}
+
+.button {
+  background-color: var(--color-primary);
+  border-radius: 5px;
+  color: var(--font-color-primary);
+  margin-left: auto;
+  margin-right: 0;
+  padding: calc(var(--font-size) / 2) calc(var(--font-size) * 1.5);
+}
+
+/* BODY STYLES */
+main {
+  margin: calc(var(--size) * 5) auto;
+  max-width: 720px;
+  padding: var(--size);
+}
+
+h1 {
+  font-size: calc(var(--font-size) * 2.5);
+  margin: 0 0 calc(var(--size) * 3) 0;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--size);
+}
+
+/* TABLE STYLES */
+table {
+  background-color: white;
+  border-radius: 5px;
+  color: var(--font-color-secondary);
+  width: 100%;
+}
+
+td,
+th {
+  padding: var(--size);
+}
+
+thead {
+  background-color: var(--color-secondary);
+  border-bottom: 2px solid rgb(193, 195, 208);
+  color: var(--font-color-primary);
+  font-size: calc(var(--font-size) * 1.25);
+  font-weight: 800;
+}
+
+th:first-child {
+  border-top-left-radius: 5px;
+}
+th:last-child {
+  border-top-right-radius: 5px;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: rgb(235, 235,235);
+}
+
+tr td:first-child,
+tr td:nth-child(2) {
+  border-bottom: 1px solid rgb(193, 195, 208);
+  border-right: 1px solid rgb(193, 195, 208);
+ }
+tr td:last-child {
+  border-bottom: 1px solid rgb(193, 195, 208);
+}
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tr td:first-child,
+tr td:nth-child(2) {
+  width: 25%;
+}

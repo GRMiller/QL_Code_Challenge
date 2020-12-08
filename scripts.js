@@ -77,13 +77,13 @@ function checkCheckboxes() {
 				numberOfChecks++;
 			}
 		}    
-  });
+	});
       
-  if (numberOfChecks === 0) {
-    displayData = data;
-  }
-  console.table(displayData);
-  displayTable(displayData);
+	if (numberOfChecks === 0) {
+		displayData = data;
+	}
+	console.table(displayData);
+	displayTable(displayData);
 }
 
 // Listen for change, call checkCheckboxes on change
@@ -100,27 +100,27 @@ checkboxes.forEach(checkbox => checkbox.addEventListener('change', checkCheckbox
  */
 function sortSales() {
   
-  // Copy data array into display up top, to sort in conditionals
-  let displayData = [...data];
-  console.log(this.classList);
+	// Copy data array into display up top, to sort in conditionals
+	let displayData = [...data];
+	console.log(this.classList);
 
-  // Check class and alter/sort correspondingly
-  if (this.classList.length === 0) {
-    displayData.sort((a,b) => a.sales > b.sales ? 1 : -1);
-    this.classList.add('active');
-    this.classList.add('ascending');
-    displayTable(displayData);
-  } else if (this.classList.contains('ascending')) {
-    displayData.sort((a,b) => a.sales > b.sales ? -1 : 1);
-    this.classList.remove('ascending');
-    this.classList.add('descending');
-    displayTable(displayData);
-  } else if (this.classList.contains('descending')) {
-    displayData = [...data];
-    this.classList.remove('active');
-    this.classList.remove('descending');
-    displayTable(displayData);
-  }
+	// Check class and alter/sort correspondingly
+	if (this.classList.length === 0) {
+		displayData.sort((a,b) => a.sales > b.sales ? 1 : -1);
+		this.classList.add('active');
+		this.classList.add('ascending');
+		displayTable(displayData);
+	} else if (this.classList.contains('ascending')) {
+		displayData.sort((a,b) => a.sales > b.sales ? -1 : 1);
+		this.classList.remove('ascending');
+		this.classList.add('descending');
+		displayTable(displayData);
+	} else if (this.classList.contains('descending')) {
+		displayData = [...data];
+		this.classList.remove('active');
+		this.classList.remove('descending');
+		displayTable(displayData);
+	}
 }
 
 // Add event listener
@@ -134,3 +134,30 @@ salesHeader.addEventListener('click', sortSales);
  * Sort rows by Person
  * 1st click = alphabetical. 2nd click = reverse aplhabetical (not in instructions though?). 3rd click = Return to chronological
  */
+function sortPeople() {
+  
+	// Copy data array into display up top, to sort in conditionals
+	let displayData = [...data];
+	console.log(this.classList);
+
+	// Check class and alter/sort correspondingly
+	if (this.classList.length === 0) {
+		displayData.sort((a,b) => a.person > b.person ? 1 : -1);
+		this.classList.add('active');
+		this.classList.add('ascending');
+		displayTable(displayData);
+	} else if (this.classList.contains('ascending')) {
+		displayData.sort((a,b) => a.person > b.person ? -1 : 1);
+		this.classList.remove('ascending');
+		this.classList.add('descending');
+		displayTable(displayData);
+	} else if (this.classList.contains('descending')) {
+		displayData = [...data];
+		this.classList.remove('active');
+		this.classList.remove('descending');
+		displayTable(displayData);
+	}
+}
+
+// Add event listener
+personHeader.addEventListener('click', sortPeople);

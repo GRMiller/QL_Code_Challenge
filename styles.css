@@ -67,7 +67,29 @@ a {
   color: var(--font-color-primary);
   font-size: var(--font-size);
   margin-right: calc(var(--size) * 2);
+  position: relative;
   text-decoration: none;
+}
+
+a::after {
+  --scale: 0;
+
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 3px;
+  background: linear-gradient(135deg, #fff, var(--color-primary));
+  transform: scaleX(var(--scale));
+  transform-origin: var(--x) 50%;
+  transition: transform .3s cubic-bezier(.51, .92, .24, 1);
+}
+
+a:hover::after {
+  --scale: 1;
+
+  transform: scaleX(var(--scale));
 }
 
 .button {
@@ -78,6 +100,17 @@ a {
   margin-right: 0;
   padding: calc(var(--font-size) / 2) calc(var(--font-size) * 1.5);
   text-align: center;
+  transition: var(--transition);
+}
+
+.button::after {
+  content: initial;
+}
+
+.button:hover {
+  background-color: var(--font-color-primary);
+  color: var(--color-primary);
+  transition: var(--transition);
 }
 
 .message-count {
